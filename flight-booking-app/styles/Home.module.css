@@ -2,3 +2,6 @@
     text-align: center;
 }
 
+.gradient {
+    background: linear-gradient(180deg, #68D2EA 0%, #FFFFFF 100%);
+}
