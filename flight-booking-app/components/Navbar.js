@@ -5,10 +5,13 @@ import logo from '../public/Assets/Images/shared/logo.svg'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { GrClose } from 'react-icons/gr'
 
+import styles from '../styles/Navbar.module.css';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
 
-    const [navbar, setNavbar] = useState(false)
+    const [navbar, setNavbar] = useState(false);
+    const [linkActive, setLinkActive] = useState("home");
 
     return (
         <div>
@@ -16,14 +19,14 @@ const Navbar = () => {
             <nav className='w-full lg:pt-16 md:pt-10 pt-7'>
 
 
-                <div className='justify-around px-4 md:flex md:items-center md:justify-between md:mx-[13.25rem] md:px-8 '>
+                <div className='justify-between px-5 md:flex md:items-center md:justify-between md:px-11 lg:px-[13.25rem]'>
 
-                    <div className='flex items-center justify-between py-3 md:py-5 md:block'>
+                    <div className='flex items-center justify-between md:block'>
 
                         {/* Logo */}
                         <Link href='/'>
 
-                            <Image src={logo} alt='Flighty Logo' className='lg:h-11 md:h-8 h-6 z-20' />
+                            <Image src={logo} alt='Flighty Logo' className='lg:h-11 md:h-8 h-6 w-[90px] md:w-auto z-20' />
 
                         </Link>
 
@@ -44,14 +47,18 @@ const Navbar = () => {
 
                     </div>
 
-                    <div className={`fixed md:static top-0 bottom-0 left-0 right-0 bg-black/50 lg:bg-transparent lg:backdrop-blur-none backdrop-blur-xl z-10  items-center pb-3 md:block ${navbar ? 'p-12 md:p-0 block' : 'hidden'
+                    <div className={`fixed flex justify-end lg:static top-0 bottom-0 left-0 right-0 bg-black/50 lg:bg-transparent md:backdrop-blur-none backdrop-blur-xl z-10 lg:block ${navbar ? ' block' : 'hidden'
                         }`}>
 
-                        <ul className='h-full md:h-auto items-center justify-center md:flex bg-white md:bg-transparent'>
+                        <motion.ul className='h-full md:absolute lg:static right-24 top-28 md:h-auto md:rounded-xl lg:rounded-none w-2/3 md:w-1/4 pt-7 md:pt-3 md:pb-7 lg:pb-0 lg:pt-0 px-5 md:px-6 lg:px-0 lg:w-auto items-center md:items-start lg:items-center md:justify-start justify-center md:flex md:gap-4 lg:gap-10 bg-white lg:bg-transparent md:flex-col lg:flex-row'
+                            initial={{opacity: 0}}
+                            whileInView={{opacity: 1, scale: [0, 1]}}
+                            transition={{duration: 0.8, ease: 'easeInOut'}}
+                        >
 
 
-                            <li className='md:hidden flex justify-end'>
-                                <button className='p-2 text-2xl text-grayText rounded-md outline-none focus:border-gray-400' onClick={
+                            <li className='lg:hidden flex justify-end w-full'>
+                                <button className='p-2 text-2xl md:text-base text-grayText rounded-md hover:opacity-75 outline-none focus:border-gray-400' onClick={
                                     () => setNavbar(false)
                                 }>
 
@@ -61,26 +68,35 @@ const Navbar = () => {
 
                             </li>
 
-                            <li className='pb-6 md:pb-0 text-xl text-grayText py-2 md:px-6 text-center border-b-2 md:border-b-0'>
+                            <li className={`pb-6 md:pb-0 text-xl text-grayText ${linkActive === "home" ? "text-primaryBlue" : ""} py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}>
 
-                                <Link href='/' onClick={() => setNavbar(!navbar)}> Home</Link>
-
-                            </li>
-
-                            <li className='pb-6 md:pb-0 text-xl text-grayText py-2 md:px-6 text-center border-b-2 md:border-b-0'>
-
-                                <Link href='/explore' onClick={() => setNavbar(!navbar)}> Explore</Link>
+                                <Link href='/' onClick={() => {
+                                    setNavbar(!navbar);
+                                    setLinkActive("home")
+                                }}> Home</Link>
 
                             </li>
 
-                            <li className='pb-6 md:pb-0 text-xl text-grayText py-2 md:px-6 text-center border-b-2 md:border-b-0'>
+                            <li className={`pb-6 md:pb-0 text-xl text-grayText ${linkActive === "explore" ? "text-primaryBlue" : ""} py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}>
 
-                                <Link href='/services' onClick={() => setNavbar(!navbar)}> Services</Link>
+                                <Link href='/explore' onClick={() => {
+                                    setNavbar(!navbar);
+                                    setLinkActive("explore")
+                                }}> Explore</Link>
+
+                            </li>
+
+                            <li className={`pb-6 md:pb-0 text-xl text-grayText ${linkActive === "services" ? "text-primaryBlue" : ""} py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}>
+
+                                <Link href='/services' onClick={() => {
+                                    setNavbar(!navbar);
+                                    setLinkActive("services")
+                                }}> Services</Link>
 
                             </li>
                             <li className=' md:hidden grid items-center'>
 
-                                <button className='bg-primaryBlue px-5 py-2 mt-10 rounded-lg text-lightColor md:mt-0'>
+                                <button className='bg-primaryBlue px-5 py-2 mt-10 hover:opacity-75 rounded-lg text-lightColor md:mt-0'>
 
                                     <Link href='#'>Sign Up</Link>
 
@@ -89,18 +105,30 @@ const Navbar = () => {
                             </li>
 
 
-                        </ul>
+                        </motion.ul>
 
                     </div>
 
 
-                    <div className='md:block hidden'>
+                    <div className='lg:block hidden md:flex gap-6 lg:gap-0'>
 
-                        <button className='bg-primaryBlue px-5 py-2 mt-10 rounded-lg text-lightColor md:mt-0'>
+                        <button className='bg-primaryBlue lg:px-5 lg:py-2 md:px-4 md:py-[6px] mt-10 rounded-lg text-lightColor md:mt-0 md:text-sm lg:text-xl font-bold'>
 
                             <Link href='#'>Sign Up</Link>
 
                         </button>
+                        <div className='lg:hidden'>
+
+
+                            <button className='p-2 text-3xl text-grayText rounded-md outline-none focus:border-gray-400' onClick={
+                                () => setNavbar(true)
+                            }>
+
+                                <GiHamburgerMenu alt='hamburger' />
+
+                            </button>
+
+                        </div>
 
                     </div>
 

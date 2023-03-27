@@ -1,0 +1,20 @@
+.navLink {
+    position: relative;
+}
+.navLink::after {
+    content: '';
+    position: absolute;
+    background-color: hsla(251, 96%, 44%, 1);
+    height: 3px;
+    border-radius: 50px;
+    width: 50%;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    top: 2.25rem;
+    transform: scaleX(0);
+    transition: all 0.5s ease-in;
+}
+.navLink:hover::after {
+    transform: scaleX(1);
+}
