@@ -3,6 +3,7 @@ import Footer from './Footer';
 import React from 'react'
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import styles from '@/styles/Home.module.css'
 
 function Layout({ children }) {
     return (
@@ -15,7 +16,7 @@ function Layout({ children }) {
             </Head>
             <body>
 
-                <div className='gradient'>
+                <div className={styles.gradient}>
                     <Navbar />
 
                     <main>
@@ -23,6 +24,7 @@ function Layout({ children }) {
                     </main>
                 </div>
 
+                
                 <Footer />
 
 
