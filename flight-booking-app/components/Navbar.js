@@ -4,6 +4,7 @@ import Image from 'next/image'
 import logo from '../public/Assets/Images/shared/logo.svg'
 import closeIcon from '../public/Assets/Images/shared/icon-x.svg'
 import hamburger from '../public/Assets/Images/shared/Hamburger_icon.svg.png'
+import styles from '../styles/Navbar.module.css'
 
 
 const Navbar = () => {
@@ -13,7 +14,7 @@ const Navbar = () => {
   return (
     <div>
 
-      <nav className='w-full fixed top-0 left-0 right-0 z-10'>
+      <nav className={`w-full fixed top-0 left-0 right-0 z-10 ${styles.nav}`}>
         
 
         <div className='justify-around px-4 mx-auto md:flex md:items-center md:justify-between md:lg:max-w-7xl md:px-8 '> 
@@ -42,6 +43,7 @@ const Navbar = () => {
                   {
                     navbar ? (
                       <Image src={closeIcon} width={30} height={30} alt='closeNavbar' />
+                      
                     ) : (
                       <Image src={hamburger} width={30} height={30} alt='hamburger' />
                     )
@@ -55,31 +57,40 @@ const Navbar = () => {
 
           </div>
 
-          <div className={`flex-1 justify-self-center items-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+          <div className={`flex-1 justify-self-center w-full items-start pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
           navbar ? 'p-12 md:p-0 block' : 'hidden'
           }`}>
 
-          <ul className='h-screen md:h-auto items-center justify-center md:flex md:items-center'>
+          <ul className='h-screen md:w-auto md:h-auto items-center justify-center md:flex md:items-center md:bg-transparent'>
 
-            <div className='md:flex md:ml-auto'>
+            <div className='md:flex-row md:flex md:ml-auto'>
 
 
 
-            <li className='pb-6 text-xl text-grayText py-2 md:px-6 text-center border-b-2 md:border-b-0 md:mt-6'> 
+            <li className={`pb-6 text-xl text-grayText py-2 md:px-6 text-center relative border-b-2 border-gray-100 md:border-b-0 md:mt-6 hover:text-darkBlue  ${styles.a}`}> 
 
-            <Link href='/' onClick={() => setNavbar(!navbar)}> Home</Link> 
+            <Link href='/' onClick={() => {
+              setNavbar(!navbar)
+              // `${styles.active}`
+            }}> Home</Link> <br />
+
+            <div className={styles.styled}></div>
             
             </li>
 
-            <li className='pb-6 text-xl text-grayText py-2 md:px-6 text-center border-b-2 md:border-b-0 md:mt-6'> 
+            <li className={`pb-6 text-xl text-grayText py-2 md:px-6 text-center relative border-b-2 border-gray-100 md:border-b-0 md:mt-6 hover:text-darkBlue ${styles.a}`}> 
 
-            <Link href='/explore' onClick={() => setNavbar(!navbar)}> Explore</Link> 
+            <Link href='/explore' onClick={() => setNavbar(!navbar)}> Explore</Link> <br />
+
+            <div className={styles.styled}></div>
             
             </li>
 
-            <li className='pb-6 text-xl text-grayText py-2 md:px-6 text-center border-b-2 md:border-b-0 md:mt-6'> 
+            <li className={`pb-6 text-xl text-grayText py-2 md:px-6 text-center border-b-2 border-gray-100 md:border-b-0 md:mt-6 hover:text-darkBlue ${styles.a}`}> 
 
-            <Link href='/services' onClick={() => setNavbar(!navbar)}> Services</Link> 
+            <Link href='/services' onClick={() => setNavbar(!navbar)}> Services</Link> <br />
+
+            <div className={styles.styled}></div>
             
             </li>
 

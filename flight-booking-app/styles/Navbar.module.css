@@ -1,0 +1,26 @@
+.styled {
+    width: 0;
+    background: darkblue;
+    position: relative;
+    height: 0.3rem;
+    top: 0.5rem;
+    transition: 1s linear;
+}
+
+.a:hover .styled {
+   width: 100%;
+}
+
+.active {
+    width: 0;
+    background: hsl(28, 96%, 44%);
+    position: relative;
+    height: 0.3rem;
+    top: 0.5rem; 
+}
+
+@media screen and (max-width:767px) {
+    .nav {
+        background: #68D2EA ;
+    }
+}
