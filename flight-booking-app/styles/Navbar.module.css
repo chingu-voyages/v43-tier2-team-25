@@ -1,26 +1,20 @@
-.styled {
-    width: 0;
-    background: darkblue;
+.navLink {
     position: relative;
-    height: 0.3rem;
-    top: 0.5rem;
-    transition: 1s linear;
 }
-
-.a:hover .styled {
-   width: 100%;
+.navLink::after {
+    content: '';
+    position: absolute;
+    background-color: hsla(251, 96%, 44%, 1);
+    height: 3px;
+    border-radius: 50px;
+    width: 50%;
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    top: 2.25rem;
+    transform: scaleX(0);
+    transition: all 0.5s ease-in;
 }
-
-.active {
-    width: 0;
-    background: hsl(28, 96%, 44%);
-    position: relative;
-    height: 0.3rem;
-    top: 0.5rem; 
-}
-
-@media screen and (max-width:767px) {
-    .nav {
-        background: #68D2EA ;
-    }
+.navLink:hover::after {
+    transform: scaleX(1);
 }
