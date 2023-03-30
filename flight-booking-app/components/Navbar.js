@@ -51,9 +51,9 @@ const Navbar = () => {
                         }`}>
 
                         <motion.ul className='h-full md:absolute lg:static right-24 top-28 md:h-auto md:rounded-xl lg:rounded-none w-2/3 md:w-1/4 pt-7 md:pt-3 md:pb-7 lg:pb-0 lg:pt-0 px-5 md:px-6 lg:px-0 lg:w-auto items-center md:items-start lg:items-center md:justify-start justify-center md:flex md:gap-4 lg:gap-10 bg-white lg:bg-transparent md:flex-col lg:flex-row'
-                            initial={{opacity: 0}}
-                            whileInView={{opacity: 1, scale: [0, 1]}}
-                            transition={{duration: 0.8, ease: 'easeInOut'}}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1, scale: [0, 1] }}
+                            transition={{ duration: 0.8, ease: 'easeInOut' }}
                         >
 
 
