@@ -112,7 +112,7 @@ const Navbar = () => {
 
                     <div className='lg:block hidden md:flex gap-6 lg:gap-0'>
 
-                        <button className='bg-primaryBlue lg:px-5 lg:py-2 md:px-4 md:py-[6px] mt-10 rounded-lg text-lightColor md:mt-0 md:text-sm lg:text-xl font-bold'>
+                        <button className={`bg-primaryBlue lg:px-5 lg:py-2 md:px-4 md:py-[6px] mt-10 rounded-lg text-lightColor md:mt-0 md:text-sm lg:text-xl font-bold ${styles.btnBlue}`}>
 
                             <Link href='#'>Sign Up</Link>
 
