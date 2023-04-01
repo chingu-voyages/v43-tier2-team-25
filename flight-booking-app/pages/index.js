@@ -10,6 +10,7 @@ import miami from '../public/Assets/Images/home/miami-beach.jpeg'
 import dottedLinePlane from '../public/Assets/Images/home/airplane-illustration1.svg'
 
 
+
 export default function Home() {
 
 
