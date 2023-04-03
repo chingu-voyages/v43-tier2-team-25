@@ -1,9 +1,16 @@
 .main {
     text-align: center;
-    background: linear-gradient(180deg, #68D2EA 0%, #FFFFFF 100%);
     min-height: 100vh;
 }
 
 .heights {
     height: 200px;
+}
+
+.btnBlue {
+    box-shadow: 0px 0px 16px rgba(45, 4, 222, 0.75);
+}
+
+.gradient {
+  background: linear-gradient(180deg, #68D2EA 0%, #FFFFFF 100%);
 }

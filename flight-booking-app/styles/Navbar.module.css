@@ -18,3 +18,7 @@
 .navLink:hover::after {
     transform: scaleX(1);
 }
+
+.btnBlue {
+    box-shadow: 0px 0px 16px rgba(45, 4, 222, 0.75);
+}
