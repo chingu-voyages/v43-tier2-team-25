@@ -5,10 +5,20 @@ import highway from '../public/Assets/Images/services/highway.jpg'
 import coast from '../public/Assets/Images/services/coast.jpg'
 import mountain from '../public/Assets/Images/services/mountain.jpg'
 import boat from '../public/Assets/Images/services/boat.jpg'
+import flights from '../public/Assets/Images/services/airplane-engines.png'
+import hotel from '../public/Assets/Images/services/hotel.png'
+import restaurant from '../public/Assets/Images/services/restaurant-table.png'
+import headset from '../public/Assets/Images/services/headset.svg'
+import heartbreak from '../public/Assets/Images/services/heartbreak-fill.svg'
+import lightening from '../public/Assets/Images/services/fast-fill.svg'
+import managment from '../public/Assets/Images/services/management-team.png'
+import seniorMan from '../public/Assets/Images/services/senior-happy-man.jpeg'
+import man from '../public/Assets/Images/services/carefree-guy.jpeg'
+import woman from '../public/Assets/Images/services/entrepeneur-woman.jpeg'
 
 const Services = () => {
   return (
-<div class="container">
+<div class="place-content-center lg:px-[13.25rem] md:px-[3.125rem] px-5">
    
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
     {/* Carousel wrapper */} 
@@ -57,32 +67,62 @@ const Services = () => {
     </button>
 </div>
 
+{/* Flights | Hotels | Restaurants */}
+<div id='flights-hotels-restaurants' class='flex flex-row gap-10 content-evenly place-content-center p-8 bg-white rounded-lg'>
+
+<div id='flights' class='flex flex-col rounded-md  bg-[#e0ebff] py-4 px-20 shadow-2xl'>
+<Image width='' height='' src={flights} class='' alt='airplane icon' />
+<p>Flights</p>
+</div>
+
+<div id='Hotels' class='flex flex-col rounded-md  bg-[#e0ebff] py-4 px-20 shadow-2xl'>
+<Image width='' height='' src={hotel} class='' alt='hotel icon' />
+<p>Hotels</p>
+</div>
+
+<div id='Restaurants' class='flex flex-col rounded-md bg-[#e0ebff] py-4 px-20 shadow-2xl'>
+<Image width='' height='' src={restaurant} class='' alt='restaurant icon' />
+<p>Restaurants</p>
+</div>
+
+</div>
 {/* Question */}
-<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-700 md:text-5xl lg:text-6xl dark:text-white text-center">Why Choose <span class="text-blue-800">Us</span>?</h1>
+
+<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-700 md:text-5xl lg:text-6xl dark:text-white text-center py-10">Why Choose <span class="text-blue-800">Us</span>?</h1>
 
 {/*Info Section */}
-<div id="info-container" class="flex flex-row gap-10 content-evenly">
+<div id='white-container' class='bg-white'>
+<div id="info-container" class="flex flex-row gap-10 content-evenly place-content-center text-center pt-10 pb-20 bg-white">
 
 {/*Item 1: 24/7 Support */}
 <div id='' class="">
-<div id='circle-headphones'></div>
-<h4>24/7 Support</h4>
+<div id='circle-headphones' class="flex justify-center pb-4">
+    <Image width='' height='' alt=' 24/7 support'  src={headset} class='px-5 py-4 rounded-full bg-[#2d04de]' />
+</div>
+<h4 class="font-semibold">24/7 Support</h4>
 <p>We're always here for you. </p>
 <p>Reach out at any time.</p>
 </div>
 
 {/*Item 2: Incredible Deals */}
 <div>
-<div id='circle-heart'></div>
-<h4>Incredible Deals</h4>
+<div id='circle-heart' class="flex justify-center pb-4">
+    <Image height='' width='' alt='incredible deals icon' src={heartbreak}
+    class='p-5 rounded-full bg-[#e88510]' />
+</div>
+<h4 class='font-semibold'>Incredible Deals</h4>
 <p>Reach your destination</p>
 <p>at the lowest cost.</p>
 </div>
 
 {/*Item 3: Fast Bookings */}
 <div>
-<div id='circle-lightening'></div>
-<h4>Fast Bookings</h4>
+<div id='circle-lightening' class="flex justify-center pb-4">
+    <Image height='' width='' alt='fast booking icon' src={lightening} 
+        class='p-5 rounded-full bg-[#04c731]'
+    />
+</div>
+<h4 class='font-semibold'>Fast Bookings</h4>
 <p>You can book a flight at any time</p>
 <p>withouot worrying.</p>
 </div>
@@ -90,61 +130,64 @@ const Services = () => {
 
 
 {/*Company History */}
-<div id="company-history">
-    <h2>Company History</h2>
-    <p>Lorem ipsum dolor sit amet consectetur. Interdum arcu volutpat interdum etiam et velit senectus. Bibendum vulputate dolor vestibulum vulputate sit quam. Erat lacus sollicitudin viverra sit nunc. Viverra vestibulum integer consectetur dignissim adipiscing sit. Neque tortor hac nibh malesuada interdum et posuere sit. Imperdiet quisque aliquam semper turpis nisl. At nunc elementum a nunc. Blandit consequat est et feugiat pellentesque mattis. Faucibus egestas aliquet blandit sed enim elementum.
+<div id="company-history" class='p-10'>
+    <h2 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-700 md:text-5xl lg:text-6xl dark:text-white text-center pb-3" >Company <span class="text-blue-800">History</span></h2>
+    <p class="text-justify">Lorem ipsum dolor sit amet consectetur. Interdum arcu volutpat interdum etiam et velit senectus. Bibendum vulputate dolor vestibulum vulputate sit quam. Erat lacus sollicitudin viverra sit nunc. Viverra vestibulum integer consectetur dignissim adipiscing sit. Neque tortor hac nibh malesuada interdum et posuere sit. Imperdiet quisque aliquam semper turpis nisl. At nunc elementum a nunc. Blandit consequat est et feugiat pellentesque mattis. Faucibus egestas aliquet blandit sed enim elementum.
 Facilisis lorem nisi pulvinar pellentesque pharetra cursus. Ultrices odio ipsum nibh ac malesuada elit eu. Sit tempor mi egestas posuere sed vulputate neque ut purus. Gravida quis amet pharetra vitae lorem. Egestas odio at suscipit purus sapien ullamcorper. Malesuada et mattis lobortis elementum facilisi amet tempor. Risus neque amet massa ultrices enim.</p>
-<Image></Image>
+<Image width='' height='' alt='team image' src={managment}
+class='flex justify-center' />
 </div>
 
 {/* Testimonials */}
-<h4>Look at what people have to say about us</h4>
-<div id='testimonial-container' class='flex flex-row gap-10 '>
+<h4 class="text-center text-[#4B4C4D] pb-4 font-bold text-2xl">Look at what people have to say about us</h4>
+<div id='testimonial-container' class='flex flex-row gap-10 place-content-center'>
 {/* Person 1 */}
-<div id='person-1'>
-<div>
-<Image></Image>
+<div id='person-1' class='bg-white p-3 rounded-lg shadow-2xl'>
+<div class='flex flex-row pb-4 items-center gap-3'>
+<Image height='' width='' alt='picture of first testimonial person' class='w-20 h-20 rounded-full' src={seniorMan} />
 <p>Augusto De Vinchi</p>
+</div>
 <div id="opinion">
-<p>"This is the best website I've used so far. I totally recommend it!"</p>
+<p class='text-center'>"This is the best website I've used so far. I totally recommend it!"</p>
 </div>
-</div>
+
 </div>
 
 {/* Person 2 */}
-<div id='person-2'>
-<div>
-<Image></Image>
+<div id='person-2' class='bg-white p-3 rounded-lg shadow-2xl'>
+<div class='flex flex-row pb-4 items-center gap-3'>
+<Image alt='picture of testimonial man' src={man}
+class='w-20 h-20 rounded-full' />
 <p>Akachukwu Oye</p>
 </div>
 <div id='opinion'>
-    <p>I found it difficult to travel but flight
-    made everything easy for me.</p>
+    <p class='text-center'>"I found it difficult to travel but flight
+    made everything easy for me."</p>
 </div>
 </div>
 {/* Person 3 */}
-<div id='person-3'>
-<div>
-<Image></Image>
+<div id='person-3' class='bg-white p-3 rounded-lg shadow-2xl'>
+<div class='flex flex-row pb-4 items-center gap-3'>
+<Image height='' width='' alt='picture of third testimonial person' src={woman} 
+    class='w-20 h-20 rounded-full'
+/>
 <p>Fahiza Sheirkh</p>
 </div>
 <div>
-    <p>If you're looking for the best deals,
+    <p class='text-center'>"If you're looking for the best deals,
     don't worry no more,
-    flighty's got you.</p>
+    flighty's got you."</p>
 </div>
 </div>
 
-<div>
-    <p>Don't lose time. Fly with us!</p>
-</div>
 </div> 
+<p class="text-center p-4">SO DON'T LOSE TIME, FLY WITH US! </p>
 {/* To do list:
 - Correct colors
 - Correct font sizes
 - Desktop sizes
 - Mobile view */}
-
+</div>
 </div>
 
 
