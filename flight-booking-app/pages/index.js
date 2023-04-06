@@ -10,49 +10,28 @@ import maldives from '../public/Assets/Images/home/maldives.jpeg'
 import hawaii from '../public/Assets/Images/home/hawai-botanical.jpeg'
 import miami from '../public/Assets/Images/home/miami-beach.jpeg'
 import dottedLinePlane from '../public/Assets/Images/home/airplane-illustration1.svg'
+import prazia from '../public/Assets/Images/home/luc-boegly-sergio-prazia.jpeg'
+import london from '../public/Assets/Images/home/londonImg.jpeg'
+import restaurant from '../public/Assets/Images/home/romantic-restaurent.jpeg'
+import statue from '../public/Assets/Images/home/statue-of-liberty.jpeg'
+import beach from '../public/Assets/Images/home/beach-background.jpeg'
+import hotel1 from '../public/Assets/Images/home/pexels-pixabay-261102.jpg'
+import hotel2 from '../public/Assets/Images/home/pexels-pixabay-53577.jpg'
+import hotel3 from '../public/Assets/Images/home/pexels-tom-balabaud-1579739.jpg'
 import { IoLocationOutline } from 'react-icons/io'
-import { parse, stringify } from 'postcss';
 import { useState } from 'react';
 
-
-
-
-// export const getStaticProps = async () => {
-
-//   const options = {
-//     method: 'GET',
-//     params: {hotel_id: '1377073', locale: 'en-gb'},
-//     headers: {
-//       'X-RapidAPI-Key': '74070d570emshf91e655a2a4dad6p19c0f3jsncf425bc71d01',
-//       'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
-//     }
-//   };
-
-//   const res = await fetch('https://booking-com.p.rapidapi.com/v1/static/hotels', options)
-//   const data = await res.json();
-  
-
-//   const slicedData = Array.isArray(data) ? data.slice(0, 3) : [];
- 
-  
-
-//   return {
-//     props: {
-//       hotels: slicedData
-//     }
-//   }
-  
-// }
 
 
 
 export default function Home( ) {
 
   const [ hotel, setHotel ] = useState( [] )
+  
+
 
   const options = {
     method: 'GET',
-    // params: {hotel_id: '1377073', locale: 'en-gb'},
     headers: {
       'X-RapidAPI-Key': '74070d570emshf91e655a2a4dad6p19c0f3jsncf425bc71d01',
       'X-RapidAPI-Host': 'booking-com.p.rapidapi.com',
@@ -61,12 +40,16 @@ export default function Home( ) {
   };
 
   useEffect( () => {
-    axios.get('https://booking-com.p.rapidapi.com/v1/static/hotels', options)
-    .then( res => {
-      // console.log(res.data)
-      setHotel(res?.data)
-    })
+    const fetchHotel = async () => {
+      const response = await fetch('https://booking-com.p.rapidapi.com/v1/static/hotels', options)
+      const json = await response.json()
+      setHotel(json.result)
+    }
+    fetchHotel();
   }, [])
+
+
+  const imgHotels = [ hotel1, hotel2, hotel3 ]
   
 
 
@@ -91,7 +74,6 @@ export default function Home( ) {
       country: 'Miami',
     },
   ]
-
 
 
   return (
@@ -154,21 +136,60 @@ export default function Home( ) {
 
         <h3 className={`text-grayText text-lg text-center tracking-widest`}> Pick the right destination with us and travel with confidence</h3>
 
-        <div className={`restaurants`}>
+        <div className={`restaurants grid md:grid-cols-3`}>
 
+          
           {
-            hotel.map( hotels => (
-              <div key={hotels?.id}>
+            imgHotels.map( (img, id) => (
 
-                <h2 className='text-grayText'> {hotels?.name} </h2>
+              <div className='bg-white pb-6 rounded-md mx-2 my-4'>
 
+                <div key={id} className=''>
+                  <Image className='rounded-md' src={img} width={'auto'} height={'auto'} alt='nice-hotels' />
+                </div>
+
+                {
+                  hotel && hotel[id % hotel.length]?.name && (
+
+                    <h2>{hotel[id % hotel.length]?.name}</h2>
+                  )
+                }
+
+             
+            
               </div>
             ))
+
+            
           }
 
         </div>
 
       </div>
+
+      <div className={`flex flex-col md:flex-row  md:justify-between`}>
+
+        <div className={`p-2 mt-4`}>
+
+          <Image className='rounded-md md:rounded-tr-md md:rounded-br-md md:rounded-tl-none md:rounded-bl-none ' src={london}  />
+
+        </div>
+
+        <div className={`p-2 grid md:grid md:grid-cols-2`}>
+
+          <Image className='rounded-md md:w-11/12 my-3 ' src={maldives} alt='maldives' />
+
+          <Image className='rounded-md md:w-11/12 my-3 ' src={hawaii} alt='hawaii' />
+
+          <Image className='rounded-md md:w-11/12 my-3 ' src={france} alt='france' />
+
+          <Image className='rounded-md md:w-11/12 my-3 ' src={miami} alt='miami' />
+
+        </div>
+
+      </div>
+
+
     </>
   )
 }
