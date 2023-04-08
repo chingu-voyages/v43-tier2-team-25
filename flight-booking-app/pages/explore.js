@@ -285,8 +285,8 @@ const Explore = () => {
       </div>
 
       <Image src={globe} alt='Planet Earth' className='absolute lg:-right-40 hidden lg:block right-0 lg:w-[500px] md:w-[240px] w-[154px] lg:top-[75vh] top-[50vh]' />
-      <Image src={globeMd} alt='Planet Earth' className='absolute lg:-right-40 hidden md:block lg:hidden right-0 lg:w-[500px] md:w-[240px] w-[154px] lg:top-[75vh] top-[50vh]' />
-      <Image src={globeSm} alt='Planet Earth' className='absolute lg:-right-40 block md:hidden right-0 lg:w-[500px] md:w-[240px] w-[154px] lg:top-[75vh] top-[50vh]' />
+      <Image src={globeMd} alt='Planet Earth' className='absolute lg:-right-40 hidden md:block lg:hidden right-0 lg:w-[500px] md:w-[160px] w-[154px] lg:top-[75vh] top-[50vh]' />
+      <Image src={globeSm} alt='Planet Earth' className='absolute lg:-right-40 block md:hidden right-0 lg:w-[500px] md:w-[240px] w-[110px] lg:top-[75vh] top-[50vh]' />
 
       <div>
 
@@ -317,7 +317,7 @@ const Explore = () => {
           </div> */}
         </div>
 
-        <div className='py-7 px-5 bg-white md:rounded-tr-2xl md:rounded-b-2xl rounded-tr-md rounded-b-md'>
+        <div className='py-7 px-5 bg-white lg:mb-28 mb-16 shadow-2xl md:rounded-tr-2xl md:rounded-b-2xl rounded-tr-md rounded-b-md'>
           {section === 'flights' ?
             city && travelDate && checkOut && destination ?
               flights.length ?
