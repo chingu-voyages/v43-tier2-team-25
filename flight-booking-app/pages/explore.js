@@ -73,7 +73,7 @@ const Explore = () => {
 
   // Try to get the iata code for a city to pass it to te flights search function
   useEffect(() => {
-    if (city) {
+    if (city === 'this') {
 
       getAirportCode(city).then((data) => {
         setDepartureAirportCode(data?.length ? data[0]?.code : '');

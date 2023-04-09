@@ -6,23 +6,26 @@ import instagram from '../public/Assets/Images/shared/instagram-icon.svg';
 import facebook from '../public/Assets/Images/shared/facebook-icon.svg';
 import tiktok from '../public/Assets/Images/shared/tiktok-icon.svg';
 
+import { motion } from 'framer-motion';
+import { container, item, itemFade } from '@/animation';
+
 const hoverEffect = 'hover:text-primaryBlue duration-500 transition-all ease-in-out'
 
 const Footer = () => {
   return (
     <footer className='bg-veryDarkBlue lg:px-[13.25rem] md:px-[3.125rem] px-5 py-9'>
-      <div className='flex flex-col md:flex-row md:justify-between items-center'>
+      <motion.div variants={container} initial='hidden' whileInView='show' className='flex flex-col md:flex-row md:justify-between items-center'>
 
 
-        <div className='flex flex-col space-y-10 items-center md:items-start'>
+        <motion.div variants={itemFade} className='flex flex-col space-y-10 items-center md:items-start'>
           <Link href='/'>
             <Image src={logo} alt='Flighty logo' className=' scale-90 md:scale-100' />
           </Link>
           <h2 className='text-white text-base font-semibold'>@ Copyright 2023, All right reserved</h2>
-        </div>
+        </motion.div>
 
 
-        <div className='hidden lg:block'>
+        <motion.div variants={item} className='hidden lg:block'>
           <ul className='flex flex-col lg:flex-row gap-14 text-lightColor text-2xl font-medium'>
             <li className={hoverEffect}>
               <Link href='/'>Home</Link>
@@ -34,10 +37,10 @@ const Footer = () => {
               <Link href='/services'>Services</Link>
             </li>
           </ul>
-        </div>
+        </motion.div>
 
 
-        <div className='flex flex-col space-y-10 border-t-2 md:border-t-0 border-t-lightColor  md:border-l-2 md:border-l-lightColor md:pl-4 pt-6 md:pt-0 md:mt-0 mt-9 items-center md:items-start'>
+        <motion.div variants={itemFade} className='flex flex-col space-y-10 border-t-2 md:border-t-0 border-t-lightColor  md:border-l-2 md:border-l-lightColor md:pl-4 pt-6 md:pt-0 md:mt-0 mt-9 items-center md:items-start'>
 
           <h2 className='text-base text-white font-semibold'>
             Contact us at : <Link href='mailto:dytomaomar@gmail.com' className='underline'>support@gmail.com</Link> 
@@ -55,10 +58,10 @@ const Footer = () => {
             </Link>
           </div>
 
-        </div>
+        </motion.div>
 
 
-      </div>
+      </motion.div>
 
     </footer>
   )

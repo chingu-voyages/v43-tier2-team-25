@@ -15,6 +15,7 @@ import { motion } from 'framer-motion';
 import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import { AppContext } from '@/pages/_app';
 import Saved from './Saved'
+import { contain, itemFade } from '@/animation'
 
 const Navbar = () => {
     const provider = new GoogleAuthProvider();
@@ -107,13 +108,11 @@ const Navbar = () => {
                         }`}>
 
                         <motion.ul className='h-full md:absolute lg:static right-24 top-28 md:h-auto md:rounded-xl lg:rounded-none w-2/3 md:w-1/4 pt-7 md:pt-3 md:pb-7 lg:pb-0 lg:pt-0 px-5 md:px-6 lg:px-0 lg:w-auto items-center md:items-start lg:items-center md:justify-start justify-center md:flex md:gap-4 lg:gap-10 bg-white lg:bg-transparent md:flex-col lg:flex-row'
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1, scale: [0, 1] }}
-                            transition={{ duration: 0.8, ease: 'easeInOut' }}
+                            variants={contain} initial='hidden' whileInView='show'
                         >
 
 
-                            <li className='lg:hidden flex justify-end w-full'>
+                            <motion.li variants={itemFade} className='lg:hidden flex justify-end w-full'>
                                 <button className='p-2 text-2xl md:text-base text-grayText rounded-md hover:opacity-75 outline-none focus:border-gray-400' onClick={
                                     () => setNavbar(false)
                                 }>
@@ -122,31 +121,31 @@ const Navbar = () => {
 
                                 </button>
 
-                            </li>
+                            </motion.li>
 
-                            <li className={`pb-6 md:pb-0 text-xl text-grayText ${router.pathname === "/" ? "text-primaryBlue" : ""} py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}>
+                            <motion.li variants={itemFade} className={`pb-6 md:pb-0 text-xl text-grayText ${router.pathname === "/" ? "text-primaryBlue" : ""} py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}>
 
                                 <Link href='/' onClick={() => {
                                     setNavbar(!navbar);
                                 }}> Home</Link>
 
-                            </li>
+                            </motion.li>
 
-                            <li className={`pb-6 md:pb-0 text-xl text-grayText ${router.pathname === "/explore" ? "text-primaryBlue" : ""} py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}>
+                            <motion.li variants={itemFade} className={`pb-6 md:pb-0 text-xl text-grayText ${router.pathname === "/explore" ? "text-primaryBlue" : ""} py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}>
 
                                 <Link href='/explore' onClick={() => {
                                     setNavbar(!navbar);
                                 }}> Explore</Link>
 
-                            </li>
+                            </motion.li>
 
-                            <li className={`pb-6 md:pb-0 text-xl text-grayText ${router.pathname === "/services" ? "text-primaryBlue" : ""} py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}>
+                            <motion.li variants={itemFade} className={`pb-6 md:pb-0 text-xl text-grayText ${router.pathname === "/services" ? "text-primaryBlue" : ""} py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}>
 
                                 <Link href='/services' onClick={() => {
                                     setNavbar(!navbar);
                                 }}> Services</Link>
 
-                            </li>
+                            </motion.li>
 
                             {loggedIn &&
                                 <li className={`pb-6 md:pb-0 text-xl text-grayText lg:hidden py-2 md:py-0 text-center border-b-2 md:border-b-0 ${styles.navLink}`}
@@ -159,18 +158,18 @@ const Navbar = () => {
                                 </li>
                             }
 
-                            <li className=' md:hidden grid items-center'>
+                            <motion.li variants={itemFade} className=' md:hidden grid items-center'>
 
                                 {loggedIn ? (
                                     <div className='flex gap-8 items-center md:justify-start justify-center pt-4 md:pt-0'>
                                         <div className='relative'>
-                                            <BsCart3 title='Saved' className='text-3xl text-grayText' onClick={() => {
+                                            <BsCart3 title='Saved' className='text-3xl text-grayText cursor-pointer' onClick={() => {
                                                 setShowItemsSaved(true);
                                                 setNavbar(false);
                                             }} />
-                                            {count && <p className={`rounded-full text-xs absolute -top-[6px] -right-[6px] px-[6px] py-[1px] bg-redLight text-white font-semibold ${styles.notifCart}`}>{count}</p>}
+                                            {Number(count) ? <p className={`rounded-full text-xs absolute -top-[6px] -right-[6px] px-[6px] py-[1px] bg-redLight text-white font-semibold ${styles.notifCart}`}>{count}</p> : ''}
                                         </div>
-                                        <div className='rounded-full border-2 border-grayText'>
+                                        <div className='rounded-full border-2 border-grayText cursor-pointer'>
                                             <img src={user?.photoURL} alt={user?.displayName} width={36} height={36} className='w-9 h-9 rounded-full' />
                                         </div>
                                     </div>
@@ -180,7 +179,7 @@ const Navbar = () => {
                                     Sign Up
                                 </button>}
 
-                            </li>
+                            </motion.li>
 
 
                         </motion.ul>
@@ -193,13 +192,13 @@ const Navbar = () => {
                         {loggedIn ? (
                             <div className='flex gap-8 items-center'>
                                 <div className='relative'>
-                                    <BsCart3 title='Saved' className='text-3xl text-grayText' onClick={() => {
+                                    <BsCart3 title='Saved' className='text-3xl text-grayText cursor-pointer' onClick={() => {
                                         setShowItemsSaved(true);
                                         setNavbar(false);
                                     }} />
-                                    {count && <p className={`rounded-full text-xs absolute -top-[6px] -right-[6px] px-[6px] py-[1px] bg-redLight text-white font-semibold ${styles.notifCart}`}>{count}</p>}
+                                    {Number(count) ? <p className={`rounded-full text-xs absolute -top-[6px] -right-[6px] px-[6px] py-[1px] bg-redLight text-white font-semibold ${styles.notifCart}`}>{count}</p> : ''}
                                 </div>
-                                <div className='rounded-full border-2 border-grayText' onClick={() => { setLogoutBtn(!logoutBtn) }}>
+                                <div className='rounded-full border-2 border-grayText cursor-pointer' onClick={() => { setLogoutBtn(!logoutBtn) }}>
                                     <img src={user?.photoURL} alt={user?.displayName} width={36} height={36} className='w-9 h-9 rounded-full' />
                                 </div>
                                 {logoutBtn &&

@@ -10,7 +10,7 @@ export const container = {
 }
 
 export const item = {
-    hidden: { y: '100%', opacity: 0 },
+    hidden: { y: '100px', opacity: 0 },
     show: {
         opacity: 1,
         y: 0,
@@ -20,10 +20,11 @@ export const item = {
         }
     }
 }
-export const itemBtn = {
-    hidden: { y: '100%' },
+export const contain = {
+    hidden: { opacity: 0, scale: 0 },
     show: {
-        y: 0,
+        opacity: 1,
+        scale: 1,
         transition: {
             duration: 0.5,
             ease: 'easeInOut'

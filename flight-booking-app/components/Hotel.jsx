@@ -11,7 +11,7 @@ const Hotel = ({ hotel, cart }) => {
     const [saved, setSaved] = useState(false);
     const { hotelsSaved, setHotelsSaved, loggedIn, count, setCount, hotelsAdded, setHotelsAdded, flightsAdded } = useContext(AppContext)
     return (
-        <div className='relative w-full'>
+        <div className='relative w-full shadow-2xl'>
             {cart === 'No' ? (
                 <div className='absolute top-4 right-4 w-fit'>
                     <BsFillHeartFill className={`text-xl cursor-pointer ${saved ? 'text-redLight' : 'text-[#FCFCFC]'}`}

@@ -47,3 +47,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr !important;
 }
+
+.linearGradient {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.76) 100%);
+}
