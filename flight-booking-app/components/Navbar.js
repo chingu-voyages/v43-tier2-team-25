@@ -104,7 +104,7 @@ const Navbar = () => {
 
                     </div>
 
-                    <div className={`fixed flex justify-end lg:static top-0 bottom-0 left-0 right-0 bg-black/50 lg:bg-transparent md:backdrop-blur-none backdrop-blur-xl z-10 lg:block ${navbar ? ' block' : 'hidden'
+                    <div className={`fixed flex justify-end lg:static top-0 bottom-0 left-0 right-0 bg-black/50 lg:bg-transparent md:backdrop-blur-none backdrop-blur-xl z-[100] lg:block ${navbar ? ' block' : 'hidden'
                         }`}>
 
                         <motion.ul className='h-full md:absolute lg:static right-24 top-28 md:h-auto md:rounded-xl lg:rounded-none w-2/3 md:w-1/4 pt-7 md:pt-3 md:pb-7 lg:pb-0 lg:pt-0 px-5 md:px-6 lg:px-0 lg:w-auto items-center md:items-start lg:items-center md:justify-start justify-center md:flex md:gap-4 lg:gap-10 bg-white lg:bg-transparent md:flex-col lg:flex-row'

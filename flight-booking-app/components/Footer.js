@@ -13,7 +13,7 @@ const hoverEffect = 'hover:text-primaryBlue duration-500 transition-all ease-in-
 
 const Footer = () => {
   return (
-    <footer className='bg-veryDarkBlue lg:px-[13.25rem] md:px-[3.125rem] px-5 py-9'>
+    <footer className='bg-veryDarkBlue lg:px-[13.25rem] md:px-[3.125rem] px-5 py-9 overflow-y-hidden'>
       <motion.div variants={container} initial='hidden' whileInView='show' className='flex flex-col md:flex-row md:justify-between items-center'>
 
 
