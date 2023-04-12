@@ -36,7 +36,7 @@ This Project Includes:
 <li>Ability to sign up and log in
 <li>Search Flights
 <li>Search Hotels
-<li>Search Restaurants
+<li>Save flights and hotels. Also be able to see your savings after a page refresh
 </ul>
 
 # Built With
