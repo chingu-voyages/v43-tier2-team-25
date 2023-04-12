@@ -23,6 +23,10 @@ module.exports = {
         veryLightBlue: 'hsl(217, 97%, 94%)',
         green: 'hsl(134, 96%, 40%)',
         Orange: 'hsl(235, 87%, 42%)',
+        redLight: 'hsla(360, 81%, 63%, 1)',
+      },
+      fontFamily: {
+        rubik: ['Rubik', 'sans-serif']
       }
     },
   },
