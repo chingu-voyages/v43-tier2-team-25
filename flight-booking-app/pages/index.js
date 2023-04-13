@@ -146,11 +146,11 @@ const Home = () => {
               ))
             }
 
-            <div className='hidden md:block md:absolute -z-[1] md:top-28 md:-left-7 md:-right-12 lg:top-[4.375rem] lg:-left-[7.5rem] lg:-right-[12rem]'>
+            <motion.div initial={{opacity: 0}} whileInView={{opacity: 1}} transition={{delay: 0.2, duration: 0.5, ease: 'easeIn'}} className='hidden md:block md:absolute -z-[1] md:top-28 md:-left-7 md:-right-12 lg:top-[4.375rem] lg:-left-[7.5rem] lg:-right-[12rem]'>
 
               <Image src={dottedLinePlane} className='w-full' alt='Dotted line' aria-hidden='true' />
 
-            </div>
+            </motion.div>
 
           </motion.div>
 

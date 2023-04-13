@@ -17,32 +17,33 @@ import seniorMan from '../public/Assets/Images/services/senior-happy-man.jpeg'
 import man from '../public/Assets/Images/services/carefree-guy.jpeg'
 import woman from '../public/Assets/Images/services/entrepeneur-woman.jpeg'
 
+import styles from '../styles/Navbar.module.css';
+
 import { container, item, itemFade } from '@/animation';
 import { motion } from 'framer-motion';
 
 const slides = [
-    'https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    'https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    thailand,
+    highway,
+    coast,
+    mountain,
+    boat
 ]
 
 const Services = () => {
     return (
         <div className="place-content-center">
-            <div className='lg:px-[13.25rem] md:px-[3.125rem] px-5'>
+            <div className='lg:px-[13.25rem] md:px-[3.125rem] px-5 lg:pt-20 md:pt-14 pt-8'>
 
 
-{/* New Image Slider */}
-<motion.div variants={container} initial='hidden' whileInView='show' className='max-w-lg'>
-<Carousel>
-    {slides.map((s) => ( <img src={s} />))}
-</Carousel>
-</motion.div>
+                {/* New Image Slider */}
+                <motion.div variants={container} initial='hidden' whileInView='show' className=''>
+                    <Carousel slides={slides} />
+                </motion.div>
 
 
                 {/* Flights | Hotels | Restaurants */}
-                <motion.div variants={container} initial='hidden' whileInView='show' id='flights-hotels-restaurants' className='flex md:flex-row flex-col md:gap-10 gap-4 content-evenly place-content-center p-8 bg-white rounded-lg'>
+                <motion.div variants={container} initial='hidden' whileInView='show' id='flights-hotels-restaurants' className='flex md:flex-row flex-col md:gap-10 gap-4 content-evenly place-content-center p-8 bg-white rounded-b-lg'>
 
                     <motion.div variants={itemFade} id='flights' className='flex flex-col items-center lg:gap-6 gap-3 rounded-md  bg-[#e0ebff] py-4 px-16 lg:px-20 shadow-xl'>
                         <Image width='' height='' src={flights} className='w-5 h-5 lg:w-auto lg:h-auto' alt='airplane icon' />

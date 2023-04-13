@@ -30,3 +30,18 @@
 .notifItems {
     filter: drop-shadow(0px -2px 4px #0F2B5A);
 }
+
+.customWidth {
+    width: calc(100vw - 424px);
+}
+
+@media screen and (max-width: 1024px) {
+    .customWidth {
+    width: calc(100vw - 100px);
+}
+}
+@media screen and (max-width: 768px) {
+    .customWidth {
+    width: calc(100vw - 40px);
+}
+}
