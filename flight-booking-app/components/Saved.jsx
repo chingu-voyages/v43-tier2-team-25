@@ -17,10 +17,10 @@ const Saved = () => {
 
     useEffect(() => {
         const flightsState = localStorage.getItem('flightsSaved');
-        const items = JSON.parse(flightsState);
+        const items = JSON.parse(flightsState) || [];
 
         const hotelsState = localStorage.getItem('hotelsSaved');
-        const hotelsItems = JSON.parse(hotelsState);
+        const hotelsItems = JSON.parse(hotelsState) || [];
         setFlightsSaved(items);
         setFlightsAdded(Number(items.length));
         setHotelsSaved(hotelsItems);
